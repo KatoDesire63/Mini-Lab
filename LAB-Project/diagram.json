@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "author": "Kato Desire",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 9.6, "left": -14.36, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht1", "top": -18.9, "left": 148.2, "attrs": {} },
+    { "type": "wokwi-gas-sensor", "id": "gas1", "top": -6.9, "left": -319.4, "attrs": {} },
+    { "type": "wokwi-relay-module", "id": "relay1", "top": 317, "left": 0, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "dht1:VCC", "esp:3V3", "red", [ "v144", "h-201.6", "v-211.2" ] ],
+    [ "dht1:GND", "esp:GND.1", "black", [ "v163.2", "h-220.8", "v-96" ] ],
+    [ "esp:4", "dht1:SDA", "green", [ "h38.4" ] ],
+    [ "gas1:GND", "esp:GND.2", "black", [ "h48", "v-68", "h249.6", "v86.4" ] ],
+    [ "gas1:VCC", "esp:3V3", "red", [ "h0" ] ],
+    [ "gas1:AOUT", "esp:34", "green", [ "h96", "v67.2" ] ],
+    [ "gas1:DOUT", "esp:D2", "green", [ "h28.8", "v143.7" ] ],
+    [ "relay1:VCC", "esp:5V", "red", [ "h-76.8", "v-124.8", "h9.6" ] ],
+    [ "relay1:GND", "esp:GND.1", "black", [ "h-105.6", "v-182.8" ] ],
+    [ "relay1:IN", "esp:25", "green", [ "h-124.8", "v-0.2" ] ]
+  ],
+  "dependencies": {}
+}
